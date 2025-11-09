@@ -1,0 +1,437 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+/* 
+#head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #002b6b; 
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding-left: 24px; 
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#head img {
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: white;
+  padding: 4px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#head img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+#head h1 {
+  font-size: 1.35em;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+#head img {
+  height: 50%;
+  width: 10%;
+  object-fit: contain;
+  background: transparent;
+  border-radius: 8px;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+
+@media (max-width: 600px) {
+  #head {
+    height: 58px;
+    padding-left: 14px;
+  }
+
+  #head img {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  #head h1 {
+    font-size: 1rem;
+  }
+} */
+#head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #002b6b;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 14px;
+  z-index: 200;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* MoH Logo — Circle */
+.logo-moh {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ffffff;
+  padding: 4px;
+  border: 2px solid white;
+}
+
+/* Separator */
+.separator {
+  width: 1.5px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Event Logo — smaller + same height */
+.logo-event {
+  height: 38px; /* smaller */
+  width: auto;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 4px 8px; /* reduce padding */
+  border-radius: 6px;
+  border: 1.5px solid white;
+}
+
+/* Title */
+#head h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Make map appear under header */
+#viewDiv {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 900px) {
+  #head h1 {
+    font-size: 1rem;
+  }
+  .logo-moh,
+  .logo-event {
+    height: 36px;
+  }
+  .separator {
+    height: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  #head {
+    height: 58px;
+  }
+  #head h1 {
+    font-size: 0.9rem;
+  }
+  .logo-moh,
+  .logo-event {
+    height: 30px;
+    padding: 2px;
+  }
+  .separator {
+    height: 28px;
+  }
+  #viewDiv {
+    top: 58px;
+  }
+}
+/* ------------------------------------------------------------------ */
+
+/* Ensure map starts under header */
+#viewDiv {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: 600px) {
+  #head {
+    height: 58px;
+  }
+  .logo-moh,
+  .logo-event {
+    height: 38px;
+  }
+  #head h1 {
+    font-size: 1rem;
+  }
+}
+
+#viewDiv {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#viewDiv {
+  position: absolute;
+  top: 71px;
+  bottom: 45px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+#welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 43, 107, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+#welcome.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#welcomeBox {
+  background: white;
+  color: #002b6b;
+  text-align: center;
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  animation: fadeInUp 1s ease;
+}
+
+#welcomeBox h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+#welcomeBox h1 span {
+  color: #0078ff;
+}
+
+#welcomeBox p {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+#startBtn {
+  background: #0078ff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#startBtn:hover {
+  background: #005bb5;
+  transform: scale(1.05);
+}
+@media (max-width: 768px) {
+  #welcomeBox {
+    padding: 30px 40px;
+  }
+  #welcomeBox h1 {
+    font-size: 1.7em;
+  }
+  #welcomeBox p {
+    font-size: 1em;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  #welcomeBox {
+    padding: 25px 25px;
+    border-radius: 12px;
+  }
+  #welcomeBox h1 {
+    font-size: 1.4em;
+  }
+  #welcomeBox p {
+    font-size: 0.95em;
+  }
+  #startBtn {
+    width: 100%;
+    font-size: 1em;
+    padding: 12px;
+  }
+}
+/* Animation for the box */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 31, 91, 0.9);
+  padding: 6px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#foot div {
+  padding-top: 5px;
+  height: 25px;
+  object-fit: contain;
+  color: #ffffff;
+  opacity: 0.5;
+  filter: brightness(1);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Logo size */
+/* #foot img {
+  height: 32px; 
+  object-fit: contain;
+  opacity: 0.95;
+  filter: brightness(1);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+} */
+
+/* #foot img:hover {
+  transform: translateY(-2px) scale(1.06);
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  #foot img {
+    height: 26px;
+  }
+} */
+
+/* Attribution text */
+#custom-attribution {
+  height: 32px;
+  object-fit: contain;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+/* ------- Responsive Breakpoints ------- */
+
+/* Tablets */
+@media (max-width: 900px) {
+  #foot {
+    height: 50px;
+  }
+  #custom-attribution {
+    font-size: 13px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #foot {
+    height: 45px;
+    padding: 0 10px;
+  }
+  #custom-attribution {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  #foot {
+    gap: 16px;
+  }
+  #foot img {
+    height: 22px;
+  }
+}
+
+@media (max-width: 400px) {
+  #foot img {
+    height: 18px;
+  }
+}
+.bottom-alert {
+  /* --calcite-alert-width: 320px; */
+  --calcite-alert-offset-size: 50px;
+  --calcite-alert-corner-radius: 8px;
+  --calcite-alert-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+#routeLoader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* <-- centers it */
+  z-index: 9999999;
+}

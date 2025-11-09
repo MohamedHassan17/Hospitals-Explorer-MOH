@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOH Find Hospital APP</title>
+
+    <link rel="stylesheet" href="./main.css" />
+
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.0.3/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.32/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.32/"></script>
+    <script src="./main.js"></script>
+    <script
+      type="module"
+      src="https://js.arcgis.com/map-components/4.32/arcgis-map-components.esm.js"
+    ></script>
+  </head>
+  <body>
+    <!-- <div id="head">
+      <div class="header-content">
+        <img
+          style="width: 50px; height: 50px"
+          src="https://mohgeoportal.maps.arcgis.com/sharing/rest/content/items/da3da44b0c804573b4542db0dc36663f/data"
+          alt="Ministry of Health Logo"
+        />
+        <h1>Ministry of Health Explorer</h1>
+      </div>
+    </div> -->
+    <!-- ---------------------------------------------------- -->
+    <div id="head">
+      <div class="header-content">
+        <!-- MoH Logo (circular) -->
+        <img
+          class="logo-moh"
+          src="https://mohgeoportal.maps.arcgis.com/sharing/rest/content/items/da3da44b0c804573b4542db0dc36663f/data"
+          alt="Ministry of Health Logo"
+        />
+
+        <!-- Vertical Separator -->
+        <div class="separator"></div>
+
+        <!-- Event Logo (rectangular) -->
+        <img
+          class="logo-event"
+          src="https://mohgeoportal.maps.arcgis.com/sharing/rest/content/items/47be2ebcaf7946519678e8669f56bf04/data"
+          alt="Event Logo"
+        />
+
+        <h1>Ministry of Health Explorer</h1>
+      </div>
+    </div>
+    <!-- ---------------------------------------------------- -->
+
+    <div id="viewDiv"></div>
+
+    <div id="welcome">
+      <div id="welcomeBox">
+        <h1 id="welcomeTitle">Welcome to <span>Ministry of Health</span></h1>
+        <p id="welcomeText">Your nearest hospital at your finger print.</p>
+        <button id="startBtn" value="go">Go!</button>
+      </div>
+    </div>
+    <calcite-loader
+      id="routeLoader"
+      label="Finding best route..."
+      hidden
+    ></calcite-loader>
+    <calcite-alert
+      id="locationAlert"
+      class="bottom-alert"
+      kind="danger"
+      icon="exclamationMarkTriangle"
+      scale="s"
+      closable
+      label="Location Error"
+      placement="bottom"
+      calciteAlertBeforeOpen="bubbles"
+      calciteAlertBeforeClose="bubbles"
+      --calcite-alert-width="18"
+    >
+      <div slot="title">Location Access Blocked</div>
+      <div slot="message">
+        Please enable browser location permissions to continue.
+      </div>
+      <!-- <calcite-button
+        style="width: 20%; align-content: center"
+        slot="link"
+        id="enableLocationBtn"
+        appearance="outline"
+        scale="s"
+      >
+        Enable Location
+      </calcite-button>-->
+    </calcite-alert>
+
+    <div id="foot">
+      <!-- <img
+        src="https://mohgeoportal.maps.arcgis.com/sharing/rest/content/items/753edf0af7c3483a9a434098f8d10738/data"
+      /> -->
+      <div id="custom-attribution">© 2025 Esri North Africa</div>
+
+    </div>
+  </body>
+</html>
